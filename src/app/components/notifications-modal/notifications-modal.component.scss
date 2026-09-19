@@ -1,0 +1,15 @@
+.tools {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.75rem; color: var(--cc-plum-soft); margin-bottom: 12px;
+}
+.text-btn { border: none; background: none; color: var(--cc-coral-dark); font-weight: 800; font-size: 0.75rem; }
+.notif-item {
+  display: flex; gap: 12px; padding: 14px 4px; border-bottom: 1px solid var(--cc-line); cursor: pointer;
+}
+.notif-item.unread { background: var(--cc-cream-2); margin: 0 -6px; padding: 14px 10px; border-radius: 12px; }
+.dot { width: 9px; height: 9px; background: var(--cc-coral); border-radius: 50%; margin-top: 6px; flex: none; }
+.notif-item.unread .dot { background: var(--cc-coral); }
+.notif-item:not(.unread) .dot { background: var(--cc-line); }
+h4 { margin: 0 0 4px; font-size: 0.9rem; }
+p { margin: 0; color: var(--cc-plum-soft); font-size: 0.8rem; line-height: 1.5; }
+.time { display: block; margin-top: 6px; color: var(--cc-plum-soft); font-size: 0.7rem; }

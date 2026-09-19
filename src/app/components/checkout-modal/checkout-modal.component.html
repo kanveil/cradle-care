@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="eyebrow">Almost there</div>
+      Checkout
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()"><ion-icon name="close" slot="icon-only"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  @if (!placedOrder) {
+    <div class="steps">
+      <div class="step" [class.active]="step === 1" [class.complete]="step > 1"><span>1</span><b>Shipping</b></div>
+      <div class="step" [class.active]="step === 2" [class.complete]="step > 2"><span>2</span><b>Payment</b></div>
+      <div class="step" [class.active]="step === 3"><span>3</span><b>Review</b></div>
+    </div>
+  }
+</ion-header>
+
+<ion-content class="ion-padding">
+  @if (placedOrder) {
+    <div class="success">
+      <ion-icon name="checkmark-circle" color="success"></ion-icon>
+      <h2>Order {{ placedOrder.id }} placed!</h2>
+      <p>${{ placedOrder.total.toFixed(2) }} demo payment approved. Tracking number {{ placedOrder.tracking }}.</p>
+    </div>
+  } @else {
+
+    @if (step === 1) {
+      <form [formGroup]="shippingForm">
+        <h3>Shipping information</h3>
+        <p class="help">Where should we send your order?</p>
+
+        <ion-input class="cc-field" label="First name" labelPlacement="stacked" formControlName="firstName"></ion-input>
+        @if (shippingForm.get('firstName')?.invalid && shippingForm.get('firstName')?.touched) { <div class="cc-field-error">Enter your first name.</div> }
+
+        <ion-input class="cc-field" label="Last name" labelPlacement="stacked" formControlName="lastName"></ion-input>
+        @if (shippingForm.get('lastName')?.invalid && shippingForm.get('lastName')?.touched) { <div class="cc-field-error">Enter your last name.</div> }
+
+        <ion-input class="cc-field" label="Email" labelPlacement="stacked" type="email" formControlName="email"></ion-input>
+        @if (shippingForm.get('email')?.invalid && shippingForm.get('email')?.touched) { <div class="cc-field-error">Enter a valid email address.</div> }
+
+        <ion-input class="cc-field" label="Street address" labelPlacement="stacked" formControlName="address"></ion-input>
+        @if (shippingForm.get('address')?.invalid && shippingForm.get('address')?.touched) { <div class="cc-field-error">Enter your shipping address.</div> }
+
+        <ion-input class="cc-field" label="City" labelPlacement="stacked" formControlName="city"></ion-input>
+        @if (shippingForm.get('city')?.invalid && shippingForm.get('city')?.touched) { <div class="cc-field-error">Enter your city.</div> }
+
+        <ion-input class="cc-field" label="State / Province" labelPlacement="stacked" formControlName="state"></ion-input>
+        @if (shippingForm.get('state')?.invalid && shippingForm.get('state')?.touched) { <div class="cc-field-error">Enter your state or province.</div> }
+
+        <ion-input class="cc-field" label="Postal code" labelPlacement="stacked" inputmode="numeric" maxlength="5" formControlName="postal" (ionInput)="onPostalInput($event)"></ion-input>
+        @if (shippingForm.get('postal')?.invalid && shippingForm.get('postal')?.touched) { <div class="cc-field-error">⚠ Enter a valid 5-digit postal code.</div> }
+
+        <ion-input class="cc-field" label="Country" labelPlacement="stacked" formControlName="country"></ion-input>
+        @if (shippingForm.get('country')?.invalid && shippingForm.get('country')?.touched) { <div class="cc-field-error">Enter your country.</div> }
+      </form>
+    }
+
+    @if (step === 2) {
+      <h3>Payment information</h3>
+      <p class="help">This is a safe demo checkout. No real payment is processed.</p>
+      <div class="pay-methods">
+        <button class="pay-method" [class.active]="paymentMethod === 'card'" (click)="selectPayment('card')">Card</button>
+        <button class="pay-method" [class.active]="paymentMethod === 'paypal'" (click)="selectPayment('paypal')">PayPal</button>
+      </div>
+
+      @if (paymentMethod === 'card') {
+        <form [formGroup]="paymentForm">
+          <ion-input class="cc-field" label="Name on card" labelPlacement="stacked" formControlName="cardName"></ion-input>
+          @if (paymentForm.get('cardName')?.invalid && paymentForm.get('cardName')?.touched) { <div class="cc-field-error">Enter the name on the card.</div> }
+
+          <ion-input class="cc-field" label="Card number" labelPlacement="stacked" placeholder="4242 4242 4242 4242" inputmode="numeric" maxlength="23" formControlName="cardNumber" (ionInput)="onCardNumberInput($event)"></ion-input>
+          @if (paymentForm.get('cardNumber')?.invalid && paymentForm.get('cardNumber')?.touched) { <div class="cc-field-error">Enter a valid card number.</div> }
+
+          <div class="compact-grid">
+            <div>
+              <ion-input class="cc-field" label="Expiry" labelPlacement="stacked" placeholder="MM/YY" inputmode="numeric" maxlength="5" formControlName="cardExpiry" (ionInput)="onExpiryInput($event)"></ion-input>
+              @if (paymentForm.get('cardExpiry')?.invalid && paymentForm.get('cardExpiry')?.touched) { <div class="cc-field-error">Use MM/YY.</div> }
+            </div>
+            <div>
+              <ion-input class="cc-field" label="CVV" labelPlacement="stacked" placeholder="123" inputmode="numeric" maxlength="4" formControlName="cardCvv" (ionInput)="onCvvInput($event)"></ion-input>
+              @if (paymentForm.get('cardCvv')?.invalid && paymentForm.get('cardCvv')?.touched) { <div class="cc-field-error">Enter a valid CVV.</div> }
+            </div>
+          </div>
+        </form>
+      } @else {
+        <div class="paypal-box">
+          <strong>PayPal sandbox</strong>
+          <p>Use the simulated approval below. No real account or payment is used.</p>
+          <ion-button expand="block" fill="outline" color="secondary" (click)="approvePaypal()">Approve PayPal demo</ion-button>
+          @if (paypalApproved) { <div class="paypal-approved">✓ PayPal demo approved</div> }
+        </div>
+      }
+    }
+
+    @if (step === 3) {
+      <h3>Review your order</h3>
+      <p class="help">Check your details before placing the order.</p>
+      <div class="review-grid">
+        <div class="review-card">
+          <h4>Shipping to</h4>
+          <div>
+            {{ shippingForm.value.firstName }} {{ shippingForm.value.lastName }}<br>
+            {{ shippingForm.value.address }}<br>
+            {{ shippingForm.value.city }}, {{ shippingForm.value.state }} {{ shippingForm.value.postal }}<br>
+            {{ shippingForm.value.country }}
+          </div>
+          <button class="text-btn" (click)="backTo(1)">Edit shipping</button>
+        </div>
+        <div class="review-card">
+          <h4>Payment</h4>
+          <div>{{ reviewPaymentLabel }}</div>
+          <button class="text-btn" (click)="backTo(2)">Edit payment</button>
+        </div>
+      </div>
+      <div class="review-items">
+        @for (line of cart.lines(); track line.product.id) {
+          <div><span>{{ line.product.name }} × {{ line.qty }}</span><strong>${{ (line.product.price * line.qty).toFixed(2) }}</strong></div>
+        }
+      </div>
+      <div class="review-total"><span>Order total</span><strong>${{ cart.subtotal().toFixed(2) }}</strong></div>
+      <label class="terms">
+        <ion-checkbox [checked]="termsAccepted" (ionChange)="termsAccepted = $event.detail.checked"></ion-checkbox>
+        <span>I agree to the demo checkout terms and understand this payment is simulated.</span>
+      </label>
+    }
+  }
+</ion-content>
+
+@if (!placedOrder) {
+  <ion-footer class="ion-no-border">
+    <div class="actions">
+      @if (step === 1) {
+        <ion-button expand="block" color="primary" class="cc-pill-btn" (click)="goToPayment()">Continue to payment</ion-button>
+      }
+      @if (step === 2) {
+        <ion-button fill="outline" color="secondary" class="cc-pill-btn" (click)="backTo(1)">Back</ion-button>
+        <ion-button expand="block" color="primary" class="cc-pill-btn" (click)="goToReview()">Review order</ion-button>
+      }
+      @if (step === 3) {
+        <ion-button fill="outline" color="secondary" class="cc-pill-btn" (click)="backTo(2)">Back</ion-button>
+        <ion-button expand="block" color="primary" class="cc-pill-btn" (click)="placeOrder()">Place demo order</ion-button>
+      }
+    </div>
+  </ion-footer>
+}

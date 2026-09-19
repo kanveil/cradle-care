@@ -1,0 +1,30 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="shop">
+      <ion-icon name="storefront-outline"></ion-icon>
+      <ion-label>Shop</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="wishlist">
+      <ion-icon name="heart-outline"></ion-icon>
+      <ion-label>Wishlist</ion-label>
+      @if (wishlist.count() > 0) {
+        <ion-badge color="danger">{{ wishlist.count() }}</ion-badge>
+      }
+    </ion-tab-button>
+    <ion-tab-button tab="cart">
+      <ion-icon name="bag-handle-outline"></ion-icon>
+      <ion-label>Cart</ion-label>
+      @if (cart.totalCount() > 0) {
+        <ion-badge color="danger">{{ cart.totalCount() }}</ion-badge>
+      }
+    </ion-tab-button>
+    <ion-tab-button tab="account">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Account</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

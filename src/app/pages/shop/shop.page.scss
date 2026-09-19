@@ -1,0 +1,9 @@
+.subtitle { color: var(--cc-plum-soft); margin: 0 0 16px; font-size: 0.88rem; }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; overflow-x: auto; }
+.filter-btn {
+  border: 2px solid var(--cc-line); background: #fff; color: var(--cc-plum-soft);
+  padding: 8px 16px; border-radius: 999px; font-weight: 700; font-size: 0.8rem; white-space: nowrap;
+}
+.filter-btn.active { background: var(--cc-plum); border-color: var(--cc-plum); color: #fff; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding-bottom: 20px; }
+@media (min-width: 700px) { .grid { grid-template-columns: repeat(3, 1fr); } }

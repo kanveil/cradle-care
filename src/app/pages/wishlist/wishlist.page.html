@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="eyebrow">Saved for later</div>
+      My wishlist
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  @if (wishlist.products$().length === 0) {
+    <div class="cc-empty-state">
+      <ion-icon name="heart-outline"></ion-icon>
+      <p>Nothing saved yet.<br>Tap the heart on a product to keep it here.</p>
+    </div>
+  } @else {
+    @for (p of wishlist.products$(); track p.id) {
+      <div class="wish-line">
+        <div class="wish-art" [style.background]="iconMap[p.icon].bg">
+          <ion-icon [name]="iconMap[p.icon].icon" [style.color]="iconMap[p.icon].tint"></ion-icon>
+        </div>
+        <div class="wish-info">
+          <h4>{{ p.name }}</h4>
+          <div class="price">${{ p.price.toFixed(2) }}</div>
+          <div class="wish-actions">
+            <button (click)="addToCart(p.id)">Add to cart</button>
+            <button (click)="remove(p.id)">Remove</button>
+          </div>
+        </div>
+      </div>
+    }
+  }
+</ion-content>

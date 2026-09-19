@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="eyebrow">Your account</div>
+      Account
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+@if (!auth.isLoggedIn()) {
+  <div class="intro">
+    <h2>{{ authMode() === 'login' ? 'Welcome back' : 'Create your account' }}</h2>
+    <p>Create an account to save favorites and keep your details ready for checkout.</p>
+  </div>
+
+  <div class="auth-tabs">
+    <button class="auth-tab" [class.active]="authMode() === 'login'" (click)="setAuthMode('login')">Log in</button>
+    <button class="auth-tab" [class.active]="authMode() === 'signup'" (click)="setAuthMode('signup')">Create account</button>
+  </div>
+
+  @if (authMode() === 'signup') {
+    <ion-input class="cc-field" label="Full name" labelPlacement="stacked" placeholder="Jamie Lee" [(ngModel)]="authName"></ion-input>
+    @if (authErrors.name) { <div class="cc-field-error">Please enter your name.</div> }
+  }
+
+  <ion-input class="cc-field" label="Email" labelPlacement="stacked" type="email" placeholder="you@email.com" [(ngModel)]="authEmail"></ion-input>
+  @if (authErrors.email) { <div class="cc-field-error">Please enter a valid email.</div> }
+
+  <ion-input class="cc-field" label="Password" labelPlacement="stacked" type="password" placeholder="At least 6 characters" [(ngModel)]="authPassword"></ion-input>
+  @if (authErrors.password) { <div class="cc-field-error">Password must be at least 6 characters.</div> }
+
+  <ion-button expand="block" color="primary" class="cc-pill-btn" [disabled]="submitting" (click)="submitAuth()">
+    {{ authMode() === 'signup' ? 'Create account' : 'Log in' }}
+  </ion-button>
+  @if (authError) { <div class="form-msg err">{{ authError }}</div> }
+
+} @else {
+
+  <div class="profile-head">
+    <div>
+      <div class="eyebrow">My account</div>
+      <h2>Hi, {{ auth.current()?.name?.split(' ')?.[0] }}</h2>
+    </div>
+    <ion-button fill="outline" color="secondary" size="small" class="cc-pill-btn" (click)="logout()">Log out</ion-button>
+  </div>
+
+  <a routerLink="/admin" class="admin-link">
+    <span>Switch to admin panel</span>
+    <span aria-hidden="true">→</span>
+  </a>
+
+  <div class="profile-tabs">
+    <button class="profile-tab" [class.active]="profileTab() === 'details'" (click)="profileTab.set('details')">Profile</button>
+    <button class="profile-tab" [class.active]="profileTab() === 'orders'" (click)="profileTab.set('orders')">Orders ({{ orders.length }})</button>
+  </div>
+
+  @if (profileTab() === 'details') {
+    <ion-input class="cc-field" label="Full name" labelPlacement="stacked" [(ngModel)]="profileName"></ion-input>
+    <ion-input class="cc-field" label="Email" labelPlacement="stacked" [value]="auth.current()?.email" disabled></ion-input>
+
+    <ion-input class="cc-field" label="Phone" labelPlacement="stacked" inputmode="tel" maxlength="14" placeholder="(555) 123-4567" [value]="profilePhone" (ionInput)="onPhoneInput($event)"></ion-input>
+    @if (profileErrors.phone) { <div class="cc-field-error">⚠ Enter a valid 10-digit phone number.</div> }
+
+    <ion-input class="cc-field" label="ZIP / Postal code" labelPlacement="stacked" inputmode="numeric" maxlength="5" placeholder="10001" [value]="profileZip" (ionInput)="onZipInput($event)"></ion-input>
+    @if (profileErrors.zip) { <div class="cc-field-error">⚠ Enter a valid 5-digit postal code.</div> }
+
+    <ion-textarea class="cc-field" label="Shipping address" labelPlacement="stacked" rows="2" placeholder="Street, city, state" [(ngModel)]="profileAddress"></ion-textarea>
+    <ion-textarea class="cc-field" label="Billing address" labelPlacement="stacked" rows="2" placeholder="Same as shipping, or enter another address" [(ngModel)]="profileBilling"></ion-textarea>
+
+    <ion-button expand="block" color="primary" class="cc-pill-btn" (click)="saveProfile()">Save profile</ion-button>
+    @if (profileSaved) { <div class="form-msg">Profile saved.</div> }
+  }
+
+  @if (profileTab() === 'orders') {
+    @if (orders.length === 0) {
+      <div class="cc-empty-state">No orders yet.<br>Your completed purchases will appear here.</div>
+    } @else {
+      @for (o of orders; track o.id) {
+        <div class="order-card">
+          <div class="order-top">
+            <div>
+              <div class="order-id">{{ o.id }}</div>
+              <div class="order-date">{{ o.createdAt | date:'mediumDate' }} · {{ o.items.length }} item{{ o.items.length === 1 ? '' : 's' }}</div>
+            </div>
+            <span class="order-status">{{ statusLabel(o) }}</span>
+          </div>
+          <div class="order-summary">
+            <span>{{ orderSummary(o) }}</span>
+            <strong>${{ o.total.toFixed(2) }}</strong>
+          </div>
+          <ion-button expand="block" fill="outline" color="secondary" size="small" class="cc-pill-btn" (click)="viewOrder(o)">View / track order</ion-button>
+        </div>
+      }
+    }
+  }
+}
+</ion-content>

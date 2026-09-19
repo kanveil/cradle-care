@@ -1,0 +1,47 @@
+.logo { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.25rem; color: var(--cc-plum); }
+.logo .dot { color: var(--cc-coral); }
+
+.topbar { background: var(--cc-plum); color: #F4EFE6; font-size: 0.72rem; text-align: center; padding: 8px 12px; }
+
+.hero { padding: 28px 20px 24px; }
+.hero h1 { font-size: 2rem; line-height: 1.1; margin: 10px 0 14px; }
+.hero h1 em { font-style: italic; color: var(--cc-coral-dark); }
+.hero .lead { font-size: 0.95rem; color: var(--cc-plum-soft); line-height: 1.6; margin-bottom: 20px; }
+.hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 26px; ion-button { flex: 1; min-width: 140px; } }
+.hero-stats { display: flex; gap: 22px; flex-wrap: wrap; }
+.hero-stats strong { display: block; font-family: 'Fraunces', serif; font-size: 1.3rem; color: var(--cc-plum); }
+.hero-stats span { font-size: 0.72rem; color: var(--cc-plum-soft); }
+
+.trust {
+  background: var(--cc-plum); color: #fff; padding: 22px 16px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.trust-item { display: flex; align-items: center; gap: 10px; ion-icon { font-size: 22px; color: var(--cc-butter); flex: none; } span { font-size: 0.76rem; font-weight: 600; line-height: 1.3; } }
+
+.section { padding: 32px 20px; }
+.section h2 { font-size: 1.5rem; margin: 0 0 12px; }
+.body-copy { color: var(--cc-plum-soft); line-height: 1.7; margin-top: 6px; }
+.about { background: #fff; }
+.values { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 12px; }
+.values li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.9rem; font-weight: 600; ion-icon { flex: none; margin-top: 1px; } }
+
+.testimonials { background: var(--cc-cream-2); display: flex; flex-direction: column; gap: 16px; }
+.section-head h2 { margin-bottom: 4px; }
+.t-card { background: #fff; border-radius: var(--cc-radius-md); padding: 20px; border: 1px solid var(--cc-line); }
+.t-card .stars { color: var(--cc-butter); letter-spacing: 2px; margin-bottom: 8px; }
+.t-card p { font-size: 0.9rem; line-height: 1.6; color: var(--cc-plum-soft); margin: 0 0 12px; }
+.t-name { font-weight: 800; font-size: 0.85rem; }
+.t-role { font-size: 0.76rem; color: var(--cc-plum-soft); }
+
+.newsletter { background: var(--cc-plum); color: #fff; padding: 32px 20px; }
+.newsletter h2 { color: #fff; font-size: 1.4rem; }
+.newsletter p { color: #c8c3de; margin: 6px 0 18px; font-size: 0.88rem; }
+.nl-input { margin-bottom: 10px; --background: #fff; --border-radius: 999px; --padding-start: 16px; }
+.nl-msg { font-size: 0.8rem; margin-top: 10px; color: var(--cc-sage); font-weight: 700; }
+.nl-msg.err { color: #FFB0B8; }
+
+.contact { }
+.info-row { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; font-weight: 600; font-size: 0.88rem; ion-icon { color: var(--cc-coral-dark); flex: none; } }
+.form-msg { font-weight: 700; font-size: 0.85rem; margin-top: 10px; padding: 12px 16px; border-radius: var(--cc-radius-sm); background: #E7F5EE; color: var(--cc-sage-dark); }
+
+.footer-note { text-align: center; color: var(--cc-plum-soft); font-size: 0.75rem; padding: 24px 20px 40px; }

@@ -1,0 +1,11 @@
+.admin-content { --background: var(--cc-cream-2); }
+.count { color: var(--cc-plum-soft); font-size: 0.8rem; margin: 0 0 12px; }
+.cust-row { display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid var(--cc-line); border-radius: var(--cc-radius-md); padding: 13px; margin-bottom: 10px; }
+.avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--cc-plum); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; flex: none; }
+.cust-info { flex: 1; min-width: 0; }
+.cust-info h4 { margin: 0 0 3px; font-size: 0.86rem; color: var(--cc-plum); }
+.cust-info span { font-size: 0.72rem; color: var(--cc-plum-soft); }
+.cust-meta { text-align: right; flex: none; }
+.cust-meta strong { display: block; font-size: 0.9rem; color: var(--cc-plum); }
+.badge { display: inline-block; margin-top: 4px; font-size: 0.62rem; font-weight: 800; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; background: #E7F5EE; color: var(--cc-sage-dark); }
+.badge.blocked { background: #FDEAEC; color: var(--cc-coral-dark); }

@@ -1,0 +1,5 @@
+{
+  "name": "cradle-care-app",
+  "integrations": { "capacitor": {} },
+  "type": "angular-standalone"
+}

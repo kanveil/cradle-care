@@ -1,0 +1,12 @@
+.admin-content { --background: var(--cc-cream-2); }
+.count { color: var(--cc-plum-soft); font-size: 0.8rem; margin: 0 0 12px; }
+.prod-row { display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid var(--cc-line); border-radius: var(--cc-radius-md); padding: 12px; margin-bottom: 10px; }
+.prod-art { width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex: none; ion-icon { font-size: 21px; } }
+.prod-info { flex: 1; min-width: 0; }
+.prod-info h4 { margin: 0 0 3px; font-size: 0.84rem; color: var(--cc-plum); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cat { font-size: 0.68rem; color: var(--cc-sage-dark); font-weight: 800; text-transform: uppercase; }
+.prod-meta { text-align: right; flex: none; }
+.prod-meta strong { display: block; font-size: 0.88rem; color: var(--cc-plum); }
+.stock { font-size: 0.66rem; color: var(--cc-plum-soft); font-weight: 700; }
+.stock.low { color: #C99400; }
+.stock.zero { color: var(--cc-coral-dark); }

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="eyebrow">Admin panel</div>
+      Product catalog
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openForm(null)"><ion-icon name="add-outline" slot="icon-only"></ion-icon></ion-button>
+      <ion-button routerLink="/home"><ion-icon name="exit-outline" slot="icon-only"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding admin-content">
+  <p class="count">{{ productService.products().length }} products</p>
+
+  @for (p of productService.products(); track p.id) {
+    <div class="prod-row" (click)="openForm(p)">
+      <div class="prod-art" [style.background]="iconMap[p.icon].bg">
+        <ion-icon [name]="iconMap[p.icon].icon" [style.color]="iconMap[p.icon].tint"></ion-icon>
+      </div>
+      <div class="prod-info">
+        <h4>{{ p.name }}</h4>
+        <span class="cat">{{ p.cat }}</span>
+      </div>
+      <div class="prod-meta">
+        <strong>${{ p.price.toFixed(2) }}</strong>
+        <span class="stock" [class.zero]="p.stock === 0" [class.low]="p.stock > 0 && p.stock <= 10">{{ p.stock }} in stock</span>
+      </div>
+    </div>
+  }
+</ion-content>

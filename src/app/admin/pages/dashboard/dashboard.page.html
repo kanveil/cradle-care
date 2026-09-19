@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="eyebrow">Admin panel</div>
+      Sales dashboard
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/home">
+        <ion-icon name="exit-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding admin-content">
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <ion-icon name="wallet-outline"></ion-icon>
+      <div class="stat-value">${{ totalRevenue().toFixed(2) }}</div>
+      <div class="stat-label">Total revenue</div>
+    </div>
+    <div class="stat-card">
+      <ion-icon name="cart-outline"></ion-icon>
+      <div class="stat-value">{{ totalOrders() }}</div>
+      <div class="stat-label">Orders</div>
+    </div>
+    <div class="stat-card">
+      <ion-icon name="trending-up-outline"></ion-icon>
+      <div class="stat-value">${{ avgOrderValue().toFixed(2) }}</div>
+      <div class="stat-label">Avg. order value</div>
+    </div>
+    <div class="stat-card">
+      <ion-icon name="alert-circle-outline"></ion-icon>
+      <div class="stat-value">{{ productService.lowStock().length + productService.outOfStock().length }}</div>
+      <div class="stat-label">Stock alerts</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Revenue, last 7 days</h3>
+    <div class="bar-chart">
+      @for (day of last7Days(); track day.label + $index) {
+        <div class="bar-col">
+          <div class="bar-track">
+            <div class="bar-fill" [style.height.%]="barHeight(day.total)"></div>
+          </div>
+          <span class="bar-label">{{ day.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Top-selling products</h3>
+    @if (topProducts().length === 0) {
+      <div class="cc-empty-state">No sales yet.</div>
+    } @else {
+      @for (p of topProducts(); track p.id) {
+        <div class="top-row">
+          <div class="top-art" [style.background]="iconMap[p.icon].bg">
+            <ion-icon [name]="iconMap[p.icon].icon" [style.color]="iconMap[p.icon].tint"></ion-icon>
+          </div>
+          <div class="top-info">
+            <div class="top-name">{{ p.name }}</div>
+            <div class="top-track"><div class="top-track-fill" [style.width.%]="barWidth(p.revenue)"></div></div>
+          </div>
+          <div class="top-meta">
+            <strong>${{ p.revenue.toFixed(2) }}</strong>
+            <span>{{ p.qty }} sold</span>
+          </div>
+        </div>
+      }
+    }
+  </div>
+
+  <div class="panel">
+    <h3>At a glance</h3>
+    <div class="glance-row"><span>Active customers</span><strong>{{ customerService.activeCount() }} / {{ customerService.totalCustomers() }}</strong></div>
+    <div class="glance-row"><span>Catalog size</span><strong>{{ productService.products().length }} products</strong></div>
+    <div class="glance-row"><span>Inventory value</span><strong>${{ productService.totalStockValue().toFixed(2) }}</strong></div>
+    <div class="glance-row"><span>Out of stock</span><strong class="danger">{{ productService.outOfStock().length }} products</strong></div>
+  </div>
+
+</ion-content>

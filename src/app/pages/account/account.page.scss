@@ -1,0 +1,28 @@
+.intro h2 { font-size: 1.5rem; margin: 0 0 8px; }
+.intro p { color: var(--cc-plum-soft); line-height: 1.6; margin: 0 0 20px; font-size: 0.9rem; }
+
+.auth-tabs, .profile-tabs { display: flex; gap: 6px; border-bottom: 1px solid var(--cc-line); margin: 0 0 18px; }
+.auth-tab, .profile-tab { background: none; border: none; padding: 10px 12px; font-weight: 800; color: var(--cc-plum-soft); border-bottom: 3px solid transparent; font-size: 0.86rem; }
+.auth-tab.active, .profile-tab.active { color: var(--cc-plum); border-color: var(--cc-coral); }
+
+.form-msg { font-weight: 700; font-size: 0.86rem; margin-top: 10px; padding: 12px 16px; border-radius: var(--cc-radius-sm); background: #E7F5EE; color: var(--cc-sage-dark); }
+.form-msg.err { background: #FDEAEC; color: var(--cc-coral-dark); }
+
+.profile-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+.profile-head h2 { font-size: 1.4rem; margin: 2px 0 0; }
+
+.admin-link {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  background: var(--cc-plum); color: #fff; text-decoration: none;
+  padding: 14px 16px; border-radius: var(--cc-radius-md); font-weight: 700; font-size: 0.86rem;
+  margin-bottom: 18px;
+}
+
+.order-card { background: #fff; border: 1px solid var(--cc-line); border-radius: var(--cc-radius-md); padding: 15px; margin-bottom: 12px; }
+.order-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.order-id { font-weight: 900; color: var(--cc-plum); font-size: 0.92rem; }
+.order-date { font-size: 0.72rem; color: var(--cc-plum-soft); margin-top: 3px; }
+.order-status { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 5px 9px; font-size: 0.68rem; font-weight: 900; background: #E7F5EE; color: var(--cc-sage-dark); white-space: nowrap; }
+.order-summary { display: flex; justify-content: space-between; gap: 10px; align-items: center; border-top: 1px solid var(--cc-line); margin-top: 12px; padding-top: 11px; color: var(--cc-plum-soft); font-size: 0.78rem; }
+.order-summary strong { color: var(--cc-plum); font-size: 0.92rem; }
+.order-card ion-button { margin-top: 12px; }

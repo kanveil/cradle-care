@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cradle &amp; Care — Baby Essentials</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">Free shipping on orders over $50 · Ships within 24 hours</div>
+
+<header class="site">
+  <div class="nav-row">
+    <a href="#top" class="logo">Cradle<span class="dot">&amp;</span>Care</a>
+    <nav class="primary">
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="notificationToggle" aria-label="Open notifications" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path><path d="M10 21h4"></path></svg>
+        <span class="cart-count notification-count" id="notificationCount">0</span>
+      </button>
+      <button class="icon-btn" id="accountToggle" aria-label="Open account">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.2-6 8-6s6.5 2 8 6"></path></svg>
+      </button>
+      <button class="icon-btn" id="wishlistToggle" aria-label="Open wishlist">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 8.8c0 5.5-8.8 10.2-8.8 10.2S3.2 14.3 3.2 8.8A4.8 4.8 0 0 1 8 4a5 5 0 0 1 4 2.2A5 5 0 0 1 16 4a4.8 4.8 0 0 1 4.8 4.8z"></path></svg>
+        <span class="cart-count" id="wishlistCount">0</span>
+      </button>
+      <button class="icon-btn" id="cartToggle" aria-label="Open cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="icon-btn hamburger" id="menuToggle" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#shop">Shop</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Small stuff, done right</div>
+        <h1>Everything baby needs, <em>nothing</em> they don't.</h1>
+        <p class="lead">Pediatrician-reviewed feeding, sleep, bath and diapering essentials — tested by real tired parents before they ever reach the shelf.</p>
+        <div class="hero-ctas">
+          <a href="#shop" class="btn btn-primary">Shop bestsellers</a>
+          <a href="#about" class="btn btn-outline">Our story</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>12,400+</strong><span>Happy families</span></div>
+          <div><strong>4.9 / 5</strong><span>Average rating</span></div>
+          <div><strong>100%</strong><span>Non-toxic materials</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="blob"></div>
+        <svg class="moon" viewBox="0 0 40 40" fill="none"><path d="M28 6C18 6 10 14 10 24s8 18 18 18c3 0 5.8-.6 8.3-1.8-6.6-2.4-11.3-8.7-11.3-16.2S29.7 10.2 36.3 7.8C33.8 6.6 31 6 28 6z" fill="#FFD374"/></svg>
+        <svg class="star" viewBox="0 0 24 24" fill="#FF6F81"><path d="M12 2l2.2 6.8H21l-5.6 4.1L17.6 20 12 15.8 6.4 20l2.2-7.1L3 8.8h6.8z"/></svg>
+        <svg class="rattle" viewBox="0 0 200 200" fill="none" stroke="#2E2A4D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="70" cy="70" r="46" fill="#FFF8F1"/>
+          <line x1="102" y1="102" x2="150" y2="150"/>
+          <circle cx="162" cy="162" r="16" fill="#FFF8F1"/>
+          <circle cx="55" cy="58" r="5" fill="#2E2A4D"/>
+          <circle cx="85" cy="58" r="5" fill="#2E2A4D"/>
+          <path d="M55 84c6 8 24 8 30 0" />
+        </svg>
+      </div>
+    </div>
+  </section>
+  <div class="scallop cream-on-white flip"></div>
+
+  <!-- TRUST BAR -->
+  <section class="trust">
+    <div class="wrap">
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+        <span>Free shipping over $50</span>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+        <span>Pediatrician approved</span>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.2-8.56"></path><polyline points="21 3 21 9 15 9"></polyline></svg>
+        <span>30-day easy returns</span>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C9 6 6 9 6 13a6 6 0 0 0 12 0c0-4-3-7-6-11z"></path></svg>
+        <span>Organic, non-toxic materials</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section class="section" id="shop">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Shop essentials</h2>
+          <p>Filter by what you're stocking up on this week.</p>
+        </div>
+      </div>
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="feeding">Feeding</button>
+        <button class="filter-btn" data-filter="sleep">Sleep</button>
+        <button class="filter-btn" data-filter="bath">Bath</button>
+        <button class="filter-btn" data-filter="diapering">Diapering</button>
+        <button class="filter-btn" data-filter="play">Playtime</button>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <div class="scallop white-on-cream"></div>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="wrap about-grid">
+      <div class="about-art" aria-hidden="true">
+        <div class="ring"></div>
+        <div class="ring small"></div>
+        <svg class="center-icon" viewBox="0 0 120 120" fill="none" stroke="#2E2A4D" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M40 40c0-11 9-20 20-20s20 9 20 20v10H40V40z" fill="#8FCFB0"/>
+          <rect x="30" y="50" width="60" height="40" rx="14" fill="#FFF1E4"/>
+          <circle cx="50" cy="70" r="3.5" fill="#2E2A4D" stroke="none"/>
+          <circle cx="70" cy="70" r="3.5" fill="#2E2A4D" stroke="none"/>
+          <path d="M50 80c4 4 16 4 20 0"/>
+        </svg>
+      </div>
+      <div>
+        <div class="eyebrow">Why Cradle &amp; Care</div>
+        <h2>Built by parents who read every label twice.</h2>
+        <p style="color:var(--plum-soft); line-height:1.7; margin-top:14px; max-width:52ch;">We started Cradle &amp; Care after one too many 2am ingredient panics. Every product here is tested for safety first, then for whether it actually survives a toddler — before it ever gets a spot on the shelf.</p>
+        <ul class="values">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Safety-tested materials
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            GOTS-certified organic cotton
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Small-batch, low waste
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            1 item donated per 10 sold
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="scallop cream-on-white flip"></div>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials" id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Parents say the quiet part loud</h2>
+        </div>
+      </div>
+      <div class="t-grid">
+        <div class="t-card">
+          <div class="stars">★★★★★</div>
+          <p>The sleep sack is the first thing that's actually kept my daughter swaddled through the night. Worth every cent.</p>
+          <div class="t-name">Ana R.</div><div class="t-role">Parent of 1</div>
+        </div>
+        <div class="t-card">
+          <div class="stars">★★★★★</div>
+          <p>Ordered the feeding starter set and it covered literally everything for our first month home. No filler items.</p>
+          <div class="t-name">Marco D.</div><div class="t-role">First-time dad</div>
+        </div>
+        <div class="t-card">
+          <div class="stars">★★★★★</div>
+          <p>Customer support answered a 11pm question about the bath thermometer within the hour. Rare these days.</p>
+          <div class="t-name">Priya S.</div><div class="t-role">Parent of 2</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="wrap nl-inner">
+      <div>
+        <h2>Get restock alerts &amp; 10% off</h2>
+        <p>One email a week, max. Mostly new-parent tips and the occasional sale.</p>
+      </div>
+      <form class="nl-form" id="nlForm" novalidate>
+        <input type="email" id="nlEmail" placeholder="you@email.com" aria-label="Email address">
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+        <div class="nl-msg" id="nlMsg"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <div class="eyebrow">Talk to us</div>
+        <h2>Questions before you buy?</h2>
+        <p>Our support team is made up of actual parents. Ask us anything about sizing, materials, or which sleep sack fits a squirmy 6-month-old.</p>
+        <div class="info-row">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          +1 (555) 013-0182
+        </div>
+        <div class="info-row">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6c0-1.1-.9-2-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6z"></path><polyline points="22 6 12 13 2 6"></polyline></svg>
+          hello@bloomandbub.example
+        </div>
+        <div class="info-row">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          123 Meadow Street, New York
+        </div>
+      </div>
+      <form id="contactForm" novalidate>
+        <div class="field" id="fName">
+          <label for="cName">Your name</label>
+          <input type="text" id="cName" placeholder="Jamie Lee">
+          <div class="error">Please enter your name.</div>
+        </div>
+        <div class="field" id="fEmail">
+          <label for="cEmail">Email</label>
+          <input type="email" id="cEmail" placeholder="you@email.com">
+          <div class="error">Please enter a valid email address.</div>
+        </div>
+        <div class="field" id="fMsg">
+          <label for="cMsg">Message</label>
+          <textarea id="cMsg" rows="4" placeholder="How can we help?"></textarea>
+          <div class="error">Tell us a little about what you need.</div>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Send message</button>
+        <div class="form-msg ok" id="contactMsg">Thanks — we'll get back to you within one business day.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <span class="footer-logo">Cradle &amp; Care</span>
+        <p>Baby essentials built around safety, softness, and getting some sleep. Based in New York, shipping everywhere.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a>
+          <a href="#" aria-label="X / Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h3l-7.5 8.6L22 22h-6.6l-5.2-6.8L4.3 22H1.2l8-9.2L2 2h6.8l4.7 6.2L18 2z"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9 18c1-3 1.5-5.5 1.5-7.5a2.5 2.5 0 0 1 5 0c0 2-1 3.5-2 5"></path></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#shop">Feeding</a></li>
+          <li><a href="#shop">Sleep</a></li>
+          <li><a href="#shop">Bath</a></li>
+          <li><a href="#shop">Diapering</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Give-back program</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Stay in touch</h4>
+        <p>Restock alerts, no spam. Sign up above and we'll take it from there.</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Cradle &amp; Care. All rights reserved.</span>
+      <span>Privacy · Terms · Shipping</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ACCOUNT / LOGIN MODAL -->
+<div class="modal-backdrop" id="accountModal" aria-hidden="true">
+  <div class="account-modal" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
+    <button class="close-x modal-close" id="closeAccount" aria-label="Close account">&times;</button>
+    <div id="authView">
+      <div class="eyebrow">Your account</div>
+      <h2 id="accountTitle">Welcome back</h2>
+      <p class="modal-copy">Create an account to save favorites and keep your details ready for checkout.</p>
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-auth-tab="login">Log in</button>
+        <button class="auth-tab" data-auth-tab="signup">Create account</button>
+      </div>
+      <form id="authForm" novalidate>
+        <div class="field" id="authNameField">
+          <label for="authName">Full name</label>
+          <input id="authName" type="text" autocomplete="name" placeholder="Jamie Lee">
+          <div class="error">Please enter your name.</div>
+        </div>
+        <div class="field" id="authEmailField">
+          <label for="authEmail">Email</label>
+          <input id="authEmail" type="email" autocomplete="email" placeholder="you@email.com">
+          <div class="error">Please enter a valid email.</div>
+        </div>
+        <div class="field" id="authPasswordField">
+          <label for="authPassword">Password</label>
+          <input id="authPassword" type="password" autocomplete="current-password" placeholder="At least 6 characters">
+          <div class="error">Password must be at least 6 characters.</div>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit" id="authSubmit">Log in</button>
+        <div class="form-msg ok" id="authMsg"></div>
+      </form>
+    </div>
+
+    <div id="profileView" class="profile-view" hidden>
+      <div class="profile-head">
+        <div>
+          <div class="eyebrow">My account</div>
+          <h2 id="profileTitle">Hi there</h2>
+        </div>
+        <button class="btn btn-outline btn-sm" id="logoutBtn">Log out</button>
+      </div>
+      <div class="profile-tabs">
+        <button class="profile-tab active" data-profile-tab="details">Profile</button>
+        <button class="profile-tab" data-profile-tab="wishlist">Wishlist</button>
+        <button class="profile-tab" data-profile-tab="orders">Orders</button>
+      </div>
+
+      <div class="profile-panel active" id="profileDetailsPanel">
+        <form id="profileForm" novalidate>
+          <div class="field"><label for="profileName">Full name</label><input id="profileName" type="text"></div>
+          <div class="field"><label for="profileEmail">Email</label><input id="profileEmail" type="email" disabled></div>
+          <div class="profile-two">
+            <div class="field"><label for="profilePhone">Phone</label><input id="profilePhone" type="tel" inputmode="tel" maxlength="14" placeholder="(555) 123-4567"><div class="error">⚠ Enter a valid 10-digit phone number. Too many numbers are not allowed.</div></div>
+            <div class="field"><label for="profileZip">ZIP / Postal code</label><input id="profileZip" type="text" inputmode="numeric" maxlength="5" placeholder="10001"><div class="error">⚠ Enter a valid 5-digit postal code. Too many numbers are not allowed.</div></div>
+          </div>
+          <div class="field"><label for="profileAddress">Shipping address</label><textarea id="profileAddress" rows="2" placeholder="Street, city, state"></textarea></div>
+          <div class="field"><label for="profileBilling">Billing address</label><textarea id="profileBilling" rows="2" placeholder="Same as shipping, or enter another address"></textarea></div>
+          <button class="btn btn-primary btn-block" type="submit">Save profile</button>
+          <div class="form-msg ok" id="profileMsg">Profile saved.</div>
+        </form>
+      </div>
+
+      <div class="profile-panel" id="profileWishlistPanel">
+        <div class="wishlist-list" id="wishlistList"></div>
+      </div>
+
+      <div class="profile-panel" id="profileOrdersPanel">
+        <div class="orders-head">
+          <div><div class="eyebrow">Your purchases</div><h3>Order history</h3></div>
+          <span class="orders-count" id="ordersCount">0 orders</span>
+        </div>
+        <div class="orders-list" id="ordersList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER DETAIL / TRACKING MODAL -->
+<div class="order-modal" id="orderModal" aria-hidden="true">
+  <div class="order-panel" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+    <div class="checkout-head">
+      <div><div class="eyebrow">Order details</div><h2 id="orderModalTitle">Order</h2></div>
+      <button class="close-x" id="closeOrderModal" aria-label="Close order details">&times;</button>
+    </div>
+    <div class="order-detail-body" id="orderDetailBody"></div>
+  </div>
+</div>
+
+<!-- NOTIFICATIONS DRAWER -->
+<aside class="notification-drawer" id="notificationDrawer" aria-label="Notifications">
+  <div class="cart-head">
+    <div>
+      <div class="eyebrow">Updates</div>
+      <h3>Notifications</h3>
+    </div>
+    <button class="close-x" id="closeNotifications" aria-label="Close notifications">&times;</button>
+  </div>
+  <div class="notification-tools">
+    <span id="notificationSummary">You're all caught up.</span>
+    <button class="text-btn" id="markAllRead">Mark all read</button>
+  </div>
+  <div class="notification-list" id="notificationList"></div>
+</aside>
+
+<!-- WISHLIST DRAWER -->
+<aside class="wishlist-drawer" id="wishlistDrawer" aria-label="Wishlist">
+  <div class="cart-head">
+    <div>
+      <div class="eyebrow">Saved for later</div>
+      <h3>My wishlist</h3>
+    </div>
+    <button class="close-x" id="closeWishlist" aria-label="Close wishlist">&times;</button>
+  </div>
+  <div class="wishlist-list drawer-wishlist" id="drawerWishlistList"></div>
+</aside>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="cart-head">
+    <h3>Your cart</h3>
+    <button class="close-x" id="closeCart" aria-label="Close cart">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+    <button class="btn btn-primary btn-block" id="checkoutBtn">Checkout</button>
+  </div>
+</aside>
+
+<!-- CHECKOUT MODAL -->
+<div class="checkout-modal" id="checkoutModal" aria-hidden="true"><div class="checkout-panel" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+<div class="checkout-head"><div><div class="eyebrow">Almost there</div><h2 id="checkoutTitle">Checkout</h2></div><button class="close-x" id="closeCheckout" aria-label="Close checkout">&times;</button></div>
+<div class="checkout-steps"><div class="checkout-step active" data-step-indicator="1"><span>1</span><b>Shipping</b></div><div class="checkout-step" data-step-indicator="2"><span>2</span><b>Payment</b></div><div class="checkout-step" data-step-indicator="3"><span>3</span><b>Review</b></div></div>
+<form id="checkoutForm" novalidate>
+<section class="checkout-step-panel active" data-step="1"><h3>Shipping information</h3><p class="checkout-help">Where should we send your order?</p><div class="checkout-form-grid">
+<div class="field"><label for="shipFirst">First name</label><input id="shipFirst" required><div class="error">Enter your first name.</div></div><div class="field"><label for="shipLast">Last name</label><input id="shipLast" required><div class="error">Enter your last name.</div></div>
+<div class="field full"><label for="shipEmail">Email</label><input id="shipEmail" type="email" required><div class="error">Enter a valid email address.</div></div><div class="field full"><label for="shipAddress">Street address</label><input id="shipAddress" required><div class="error">Enter your shipping address.</div></div>
+<div class="field"><label for="shipCity">City</label><input id="shipCity" required><div class="error">Enter your city.</div></div><div class="field"><label for="shipState">State / Province</label><input id="shipState" required><div class="error">Enter your state or province.</div></div>
+<div class="field"><label for="shipPostal">Postal code</label><input id="shipPostal" inputmode="numeric" maxlength="5" required><div class="error">⚠ Enter a valid 5-digit postal code.</div></div><div class="field"><label for="shipCountry">Country</label><input id="shipCountry" value="United States" required><div class="error">Enter your country.</div></div></div>
+<div class="checkout-actions"><button type="button" class="btn btn-primary" data-next="2">Continue to payment</button></div></section>
+<section class="checkout-step-panel" data-step="2"><h3>Payment information</h3><p class="checkout-help">This is a safe demo checkout. No real payment is processed.</p><div class="payment-methods"><button type="button" class="payment-method active" data-payment="card">Card</button><button type="button" class="payment-method" data-payment="paypal">PayPal</button></div>
+<div id="cardPaymentFields"><div class="field full"><label for="cardName">Name on card</label><input id="cardName"><div class="error">Enter the name on the card.</div></div><div class="field full"><label for="cardNumber">Card number</label><input id="cardNumber" inputmode="numeric" maxlength="19" placeholder="4242 4242 4242 4242"><div class="error">Enter a valid card number.</div></div><div class="checkout-form-grid compact"><div class="field"><label for="cardExpiry">Expiry</label><input id="cardExpiry" inputmode="numeric" maxlength="5" placeholder="MM/YY"><div class="error">Use MM/YY.</div></div><div class="field"><label for="cardCvv">CVV</label><input id="cardCvv" inputmode="numeric" maxlength="4" placeholder="123"><div class="error">Enter a valid CVV.</div></div></div></div>
+<div id="paypalPaymentFields" class="paypal-box" hidden><strong>PayPal sandbox</strong><p>Use the simulated approval below. No real account or payment is used.</p><button type="button" class="btn btn-outline" id="paypalApprove">Approve PayPal demo</button><div class="paypal-approved" id="paypalApproved">✓ PayPal demo approved</div></div>
+<div class="checkout-actions split"><button type="button" class="btn btn-outline" data-prev="1">Back</button><button type="button" class="btn btn-primary" data-next="3">Review order</button></div></section>
+<section class="checkout-step-panel" data-step="3"><h3>Review your order</h3><p class="checkout-help">Check your details before placing the order.</p><div class="review-grid"><div class="review-card"><h4>Shipping to</h4><div id="reviewShipping"></div><button type="button" class="text-btn" data-prev="1">Edit shipping</button></div><div class="review-card"><h4>Payment</h4><div id="reviewPayment"></div><button type="button" class="text-btn" data-prev="2">Edit payment</button></div></div><div class="review-items" id="reviewItems"></div><div class="review-total"><span>Order total</span><strong id="reviewTotal">$0.00</strong></div><label class="terms-check"><input type="checkbox" id="checkoutTerms"><span>I agree to the demo checkout terms and understand this payment is simulated.</span></label><div class="checkout-actions split"><button type="button" class="btn btn-outline" data-prev="2">Back</button><button type="submit" class="btn btn-primary">Place demo order</button></div><div class="checkout-success" id="checkoutSuccess"></div></section>
+</form></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

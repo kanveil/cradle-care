@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="eyebrow">Admin panel</div>
+      Customers
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/home"><ion-icon name="exit-outline" slot="icon-only"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Search by name or email" (ionInput)="onSearch($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding admin-content">
+  <p class="count">{{ results.length }} customer{{ results.length === 1 ? '' : 's' }}</p>
+
+  @if (results.length === 0) {
+    <div class="cc-empty-state">No customers match that search.</div>
+  } @else {
+    @for (c of results; track c.id) {
+      <div class="cust-row" (click)="openCustomer(c)">
+        <div class="avatar">{{ c.name.charAt(0) }}</div>
+        <div class="cust-info">
+          <h4>{{ c.name }}</h4>
+          <span>{{ c.email }}</span>
+        </div>
+        <div class="cust-meta">
+          <strong>${{ c.totalSpent.toFixed(0) }}</strong>
+          <span class="badge" [class.blocked]="c.status === 'blocked'">{{ c.status }}</span>
+        </div>
+      </div>
+    }
+  }
+</ion-content>

@@ -1,0 +1,105 @@
+/* Cradle & Care — global styles */
+@import "@ionic/angular/css/core.css";
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+h1, h2, h3, .display-font {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--cc-plum);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cc-coral-dark);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: var(--cc-coral);
+  display: inline-block;
+}
+
+/* Signature scallop divider motif, ported from style.css */
+.scallop {
+  height: 16px;
+  width: 100%;
+  background-repeat: repeat-x;
+  background-size: 26px 16px;
+  background-position: center;
+}
+.scallop.cream-on-white {
+  background-image: radial-gradient(circle at 13px 0, transparent 11px, var(--cc-cream) 11.5px);
+}
+.scallop.white-on-cream {
+  background-image: radial-gradient(circle at 13px 0, transparent 11px, #fff 11.5px);
+}
+.scallop.flip { transform: scaleY(-1); }
+
+.cc-card {
+  background: #fff;
+  border: 1px solid var(--cc-line);
+  border-radius: var(--cc-radius-md);
+}
+
+.cc-pill-btn {
+  --border-radius: 999px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.cc-empty-state {
+  text-align: center;
+  color: var(--cc-plum-soft);
+  padding: 60px 20px;
+  line-height: 1.6;
+  font-size: 0.92rem;
+}
+
+.cc-section-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.cc-field {
+  margin-bottom: 14px;
+  --background: #fff;
+  --border-color: var(--cc-line);
+  --border-radius: var(--cc-radius-sm);
+  --padding-start: 14px;
+  border: 2px solid var(--cc-line);
+  border-radius: var(--cc-radius-sm);
+}
+.cc-field.ion-invalid.ion-touched {
+  --border-color: var(--cc-coral-dark);
+  border-color: var(--cc-coral-dark);
+}
+.cc-field-error {
+  color: var(--cc-coral-dark);
+  font-size: 0.76rem;
+  font-weight: 700;
+  margin: 4px 0 10px 4px;
+}
+
+ion-toolbar {
+  --border-color: var(--cc-line);
+}

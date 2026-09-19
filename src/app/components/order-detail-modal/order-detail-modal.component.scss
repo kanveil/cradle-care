@@ -1,0 +1,30 @@
+.tracking-header {
+  display: flex; justify-content: space-between; gap: 16px; align-items: flex-start;
+  background: #fff; border: 1px solid var(--cc-line); border-radius: var(--cc-radius-md); padding: 16px;
+}
+.label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--cc-plum-soft); font-weight: 900; }
+.number { font-weight: 900; color: var(--cc-plum); margin-top: 4px; }
+.current { text-align: right; }
+.current strong { display: block; color: var(--cc-sage-dark); font-size: 0.9rem; }
+.current span { font-size: 0.72rem; color: var(--cc-plum-soft); }
+
+.timeline { margin: 22px 0 0; position: relative; padding-left: 24px; }
+.timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--cc-line); }
+.tstep { position: relative; padding: 0 0 20px 14px; }
+.tstep:last-child { padding-bottom: 0; }
+.tdot { position: absolute; left: -24px; top: 2px; width: 15px; height: 15px; border-radius: 50%; background: #fff; border: 2px solid var(--cc-line); }
+.tstep.done .tdot { background: var(--cc-sage); border-color: var(--cc-sage); }
+.tstep.current .tdot { background: var(--cc-coral); border-color: var(--cc-coral); box-shadow: 0 0 0 5px rgba(255,111,129,.14); }
+.tstep h4 { margin: 0; font-size: 0.86rem; }
+.tstep p { margin: 4px 0 0; font-size: 0.76rem; color: var(--cc-plum-soft); line-height: 1.45; }
+
+.section { margin-top: 20px; }
+.section h4 { margin: 0 0 10px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.items { background: #fff; border: 1px solid var(--cc-line); border-radius: var(--cc-radius-md); overflow: hidden; }
+.item { display: flex; justify-content: space-between; gap: 15px; padding: 12px 14px; border-bottom: 1px solid var(--cc-line); font-size: 0.8rem; }
+.item:last-child { border-bottom: 0; }
+.item span { color: var(--cc-plum-soft); }
+.item strong { color: var(--cc-plum); }
+.total-row { display: flex; justify-content: space-between; padding: 14px; font-weight: 900; background: #fff; border: 1px solid var(--cc-line); border-top: 0; border-radius: 0 0 var(--cc-radius-md) var(--cc-radius-md); }
+.box { background: #fff; border: 1px solid var(--cc-line); border-radius: var(--cc-radius-md); padding: 14px; color: var(--cc-plum-soft); font-size: 0.8rem; line-height: 1.55; }
+.box strong { color: var(--cc-plum); }

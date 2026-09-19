@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="eyebrow">Updates</div>
+      Notifications
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()"><ion-icon name="close" slot="icon-only"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div class="tools">
+    <span>{{ notifications.unreadCount() ? notifications.unreadCount() + ' unread update' + (notifications.unreadCount() === 1 ? '' : 's') : "You're all caught up." }}</span>
+    <button class="text-btn" (click)="markAllRead()">Mark all read</button>
+  </div>
+
+  @if (notifications.notifications().length === 0) {
+    <div class="cc-empty-state">No notifications yet.</div>
+  } @else {
+    @for (n of notifications.notifications(); track n.id) {
+      <div class="notif-item" [class.unread]="!n.read" (click)="onTap(n.id)">
+        <span class="dot"></span>
+        <div>
+          <h4>{{ n.title }}</h4>
+          <p>{{ n.text }}</p>
+          <span class="time">{{ n.time }}</span>
+        </div>
+      </div>
+    }
+  }
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="eyebrow">Order details</div>
+      {{ order.id }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()"><ion-icon name="close" slot="icon-only"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="tracking-header">
+    <div>
+      <div class="label">Tracking number</div>
+      <div class="number">{{ order.tracking }}</div>
+    </div>
+    <div class="current">
+      <strong>{{ status.label }}</strong>
+      <span>Current status</span>
+    </div>
+  </div>
+
+  <div class="timeline">
+    @for (label of steps; track label; let i = $index) {
+      <div class="tstep" [class]="stepState(i)">
+        <span class="tdot"></span>
+        <h4>{{ label }}</h4>
+        <p>{{ stepDescription(i) }}</p>
+      </div>
+    }
+  </div>
+
+  <div class="section">
+    <h4>Items purchased</h4>
+    <div class="items">
+      @for (item of order.items; track item.id) {
+        <div class="item"><span>{{ item.name }} × {{ item.qty }}</span><strong>${{ (item.price * item.qty).toFixed(2) }}</strong></div>
+      }
+    </div>
+    <div class="total-row"><span>Total</span><span>${{ order.total.toFixed(2) }}</span></div>
+  </div>
+
+  <div class="section">
+    <h4>Shipping to</h4>
+    <div class="box">
+      <strong>{{ order.shipping.name }}</strong><br>
+      {{ order.shipping.address }}<br>
+      {{ order.shipping.city }}, {{ order.shipping.state }} {{ order.shipping.postal }}<br>
+      {{ order.shipping.country }}
+    </div>
+  </div>
+
+  <div class="section">
+    <h4>Payment</h4>
+    <div class="box">{{ order.payment }}</div>
+  </div>
+</ion-content>

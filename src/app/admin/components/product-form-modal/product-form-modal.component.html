@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="eyebrow">{{ isEdit ? 'Edit product' : 'New product' }}</div>
+      {{ isEdit ? product?.name : 'Add to catalog' }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()"><ion-icon name="close" slot="icon-only"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-input class="cc-field" label="Product name" labelPlacement="stacked" [(ngModel)]="name"></ion-input>
+  @if (errors.name) { <div class="cc-field-error">Enter a product name (2+ characters).</div> }
+
+  <ion-select class="cc-field" label="Category" labelPlacement="stacked" interface="popover" [(ngModel)]="cat">
+    @for (o of categoryOptions; track o.value) { <ion-select-option [value]="o.value">{{ o.label }}</ion-select-option> }
+  </ion-select>
+
+  <ion-select class="cc-field" label="Icon" labelPlacement="stacked" interface="popover" [(ngModel)]="icon">
+    @for (i of iconOptions; track i) { <ion-select-option [value]="i">{{ i }}</ion-select-option> }
+  </ion-select>
+
+  <div class="two-col">
+    <div>
+      <ion-input class="cc-field" label="Price ($)" labelPlacement="stacked" type="number" [(ngModel)]="price"></ion-input>
+      @if (errors.price) { <div class="cc-field-error">Enter a price above $0.</div> }
+    </div>
+    <div>
+      <ion-input class="cc-field" label="Stock qty" labelPlacement="stacked" type="number" [(ngModel)]="stock"></ion-input>
+      @if (errors.stock) { <div class="cc-field-error">Stock can't be negative.</div> }
+    </div>
+  </div>
+
+  <ion-textarea class="cc-field" label="Description" labelPlacement="stacked" rows="3" [(ngModel)]="desc"></ion-textarea>
+  @if (errors.desc) { <div class="cc-field-error">Add a short description.</div> }
+
+  <ion-button expand="block" color="primary" class="cc-pill-btn" (click)="save()">{{ isEdit ? 'Save changes' : 'Add product' }}</ion-button>
+
+  @if (isEdit) {
+    <button class="delete-btn" (click)="deleteProduct()">Delete this product</button>
+  }
+</ion-content>

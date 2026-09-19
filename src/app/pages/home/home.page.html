@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <span class="logo">Cradle<span class="dot">&amp;</span>Care</span>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openNotifications()">
+        <ion-icon name="notifications-outline" slot="icon-only"></ion-icon>
+        @if (notifications.unreadCount() > 0) { <ion-badge color="danger">{{ notifications.unreadCount() }}</ion-badge> }
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="topbar">Free shipping on orders over $50 · Ships within 24 hours</div>
+
+  <section class="hero">
+    <div class="eyebrow">Small stuff, done right</div>
+    <h1>Everything baby needs, <em>nothing</em> they don't.</h1>
+    <p class="lead">Pediatrician-reviewed feeding, sleep, bath and diapering essentials — tested by real tired parents before they ever reach the shelf.</p>
+    <div class="hero-ctas">
+      <ion-button routerLink="/shop" class="cc-pill-btn" color="primary">Shop bestsellers</ion-button>
+      <ion-button fill="outline" color="secondary" class="cc-pill-btn">Our story</ion-button>
+    </div>
+    <div class="hero-stats">
+      <div><strong>12,400+</strong><span>Happy families</span></div>
+      <div><strong>4.9 / 5</strong><span>Average rating</span></div>
+      <div><strong>100%</strong><span>Non-toxic materials</span></div>
+    </div>
+  </section>
+
+  <div class="scallop cream-on-white flip"></div>
+
+  <section class="trust">
+    <div class="trust-item"><ion-icon name="cube-outline"></ion-icon><span>Free shipping over $50</span></div>
+    <div class="trust-item"><ion-icon name="shield-checkmark-outline"></ion-icon><span>Pediatrician approved</span></div>
+    <div class="trust-item"><ion-icon name="refresh-outline"></ion-icon><span>30-day easy returns</span></div>
+    <div class="trust-item"><ion-icon name="leaf-outline"></ion-icon><span>Organic, non-toxic materials</span></div>
+  </section>
+
+  <section class="section about">
+    <div class="eyebrow">Why Cradle &amp; Care</div>
+    <h2>Built by parents who read every label twice.</h2>
+    <p class="body-copy">We started Cradle &amp; Care after one too many 2am ingredient panics. Every product here is tested for safety first, then for whether it actually survives a toddler — before it ever gets a spot on the shelf.</p>
+    <ul class="values">
+      <li><ion-icon name="checkmark-circle" color="tertiary"></ion-icon>Safety-tested materials</li>
+      <li><ion-icon name="checkmark-circle" color="tertiary"></ion-icon>GOTS-certified organic cotton</li>
+      <li><ion-icon name="checkmark-circle" color="tertiary"></ion-icon>Small-batch, low waste</li>
+      <li><ion-icon name="checkmark-circle" color="tertiary"></ion-icon>1 item donated per 10 sold</li>
+    </ul>
+  </section>
+
+  <div class="scallop white-on-cream"></div>
+
+  <section class="section testimonials">
+    <div class="section-head"><h2>Parents say the quiet part loud</h2></div>
+    <div class="t-card">
+      <div class="stars">★★★★★</div>
+      <p>The sleep sack is the first thing that's actually kept my daughter swaddled through the night. Worth every cent.</p>
+      <div class="t-name">Ana R.</div><div class="t-role">Parent of 1</div>
+    </div>
+    <div class="t-card">
+      <div class="stars">★★★★★</div>
+      <p>Ordered the feeding starter set and it covered literally everything for our first month home. No filler items.</p>
+      <div class="t-name">Marco D.</div><div class="t-role">First-time dad</div>
+    </div>
+    <div class="t-card">
+      <div class="stars">★★★★★</div>
+      <p>Customer support answered a 11pm question about the bath thermometer within the hour. Rare these days.</p>
+      <div class="t-name">Priya S.</div><div class="t-role">Parent of 2</div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <h2>Get restock alerts &amp; 10% off</h2>
+    <p>One email a week, max. Mostly new-parent tips and the occasional sale.</p>
+    <ion-input class="nl-input" fill="solid" placeholder="you@email.com" [(ngModel)]="nlEmail" type="email"></ion-input>
+    <ion-button expand="block" color="primary" class="cc-pill-btn" (click)="submitNewsletter()">Subscribe</ion-button>
+    @if (nlMsg) { <div class="nl-msg" [class.err]="!nlOk">{{ nlMsg }}</div> }
+  </section>
+
+  <section class="section contact">
+    <div class="eyebrow">Talk to us</div>
+    <h2>Questions before you buy?</h2>
+    <p class="body-copy">Our support team is made up of actual parents. Ask us anything about sizing, materials, or which sleep sack fits a squirmy 6-month-old.</p>
+    <div class="info-row"><ion-icon name="call-outline"></ion-icon>+1 (555) 013-0182</div>
+    <div class="info-row"><ion-icon name="mail-outline"></ion-icon>hello&#64;bloomandbub.example</div>
+    <div class="info-row"><ion-icon name="location-outline"></ion-icon>123 Meadow Street, New York</div>
+
+    <ion-input class="cc-field" label="Your name" labelPlacement="stacked" placeholder="Jamie Lee" [(ngModel)]="cName"></ion-input>
+    @if (contactErrors.name) { <div class="cc-field-error">Please enter your name.</div> }
+
+    <ion-input class="cc-field" label="Email" labelPlacement="stacked" type="email" placeholder="you@email.com" [(ngModel)]="cEmail"></ion-input>
+    @if (contactErrors.email) { <div class="cc-field-error">Please enter a valid email address.</div> }
+
+    <ion-textarea class="cc-field" label="Message" labelPlacement="stacked" rows="4" placeholder="How can we help?" [(ngModel)]="cMsg"></ion-textarea>
+    @if (contactErrors.msg) { <div class="cc-field-error">Tell us a little about what you need.</div> }
+
+    <ion-button expand="block" color="primary" class="cc-pill-btn" (click)="submitContact()">Send message</ion-button>
+    @if (contactSent) { <div class="form-msg">Thanks — we'll get back to you within one business day.</div> }
+  </section>
+
+  <div class="footer-note">© 2026 Cradle &amp; Care. All rights reserved.</div>
+</ion-content>

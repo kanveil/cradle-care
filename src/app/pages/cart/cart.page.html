@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Your cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  @if (cart.lines().length === 0) {
+    <div class="cc-empty-state">
+      <ion-icon name="bag-handle-outline"></ion-icon>
+      <p>Your cart is empty.<br>Go find something soft.</p>
+    </div>
+  } @else {
+    @for (line of cart.lines(); track line.product.id) {
+      <div class="cart-line">
+        <div class="ci-art" [style.background]="iconMap[line.product.icon].bg">
+          <ion-icon [name]="iconMap[line.product.icon].icon" [style.color]="iconMap[line.product.icon].tint"></ion-icon>
+        </div>
+        <div class="ci-info">
+          <h4>{{ line.product.name }}</h4>
+          <div class="ci-price">${{ line.product.price.toFixed(2) }} each</div>
+          <div class="qty-stepper">
+            <button (click)="cart.decrement(line.product.id)">−</button>
+            <span>{{ line.qty }}</span>
+            <button (click)="cart.increment(line.product.id)">+</button>
+          </div>
+          <button class="ci-remove" (click)="cart.remove(line.product.id)">Remove</button>
+        </div>
+      </div>
+    }
+  }
+</ion-content>
+
+@if (cart.lines().length > 0) {
+  <ion-footer class="ion-no-border">
+    <div class="cart-foot">
+      <div class="subtotal"><span>Subtotal</span><span>${{ cart.subtotal().toFixed(2) }}</span></div>
+      <ion-button expand="block" color="primary" class="cc-pill-btn" (click)="checkout()">Checkout</ion-button>
+    </div>
+  </ion-footer>
+}

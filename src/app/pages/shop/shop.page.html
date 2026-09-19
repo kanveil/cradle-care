@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Shop essentials</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openNotifications()">
+        <ion-icon name="notifications-outline" slot="icon-only"></ion-icon>
+        @if (notifications.unreadCount() > 0) { <ion-badge color="danger">{{ notifications.unreadCount() }}</ion-badge> }
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <p class="subtitle">Filter by what you're stocking up on this week.</p>
+
+  <div class="filters">
+    @for (f of filters; track f.value) {
+      <button class="filter-btn" [class.active]="activeFilter() === f.value" (click)="setFilter(f.value)">{{ f.label }}</button>
+    }
+  </div>
+
+  <div class="grid">
+    @for (p of filteredProducts(); track p.id) {
+      <app-product-card [product]="p"></app-product-card>
+    }
+  </div>
+</ion-content>

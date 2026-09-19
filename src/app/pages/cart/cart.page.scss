@@ -1,0 +1,12 @@
+.cc-empty-state ion-icon { font-size: 44px; color: var(--cc-line); margin-bottom: 10px; }
+.cart-line { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--cc-line); align-items: center; }
+.ci-art { width: 52px; height: 52px; border-radius: var(--cc-radius-sm); display: flex; align-items: center; justify-content: center; flex: none; ion-icon { font-size: 24px; } }
+.ci-info { flex: 1; min-width: 0; }
+.ci-info h4 { font-size: 0.88rem; font-weight: 700; margin: 0 0 4px; color: var(--cc-plum); }
+.ci-price { font-size: 0.8rem; color: var(--cc-plum-soft); }
+.qty-stepper { display: flex; align-items: center; gap: 0; border: 1px solid var(--cc-line); border-radius: 999px; overflow: hidden; margin-top: 8px; width: fit-content; }
+.qty-stepper button { background: #fff; border: none; width: 28px; height: 28px; font-weight: 800; color: var(--cc-plum); }
+.qty-stepper span { width: 26px; text-align: center; font-size: 0.85rem; font-weight: 700; }
+.ci-remove { background: none; border: none; color: var(--cc-coral-dark); font-size: 0.74rem; font-weight: 700; margin-top: 6px; padding: 0; }
+.cart-foot { padding: 14px 16px calc(14px + env(safe-area-inset-bottom)); border-top: 1px solid var(--cc-line); background: var(--cc-cream); }
+.subtotal { display: flex; justify-content: space-between; font-weight: 800; font-size: 1rem; margin-bottom: 12px; }

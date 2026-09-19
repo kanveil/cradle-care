@@ -1,0 +1,83 @@
+/* Cradle & Care — Ionic theme tokens mapped from the original site's design system */
+:root {
+  /* ---- Brand palette (ported 1:1 from style.css :root) ---- */
+  --cc-cream: #FFF8F1;
+  --cc-cream-2: #FFF1E4;
+  --cc-plum: #2E2A4D;
+  --cc-plum-soft: #5B5678;
+  --cc-coral: #FF6F81;
+  --cc-coral-dark: #E85569;
+  --cc-sage: #8FCFB0;
+  --cc-sage-dark: #5FAE87;
+  --cc-butter: #FFD374;
+  --cc-line: #EBE0D2;
+  --cc-radius-lg: 28px;
+  --cc-radius-md: 18px;
+  --cc-radius-sm: 10px;
+  --cc-shadow: 0 10px 30px rgba(46, 42, 77, 0.08);
+
+  /* ---- Ionic color: primary = coral ---- */
+  --ion-color-primary: #FF6F81;
+  --ion-color-primary-rgb: 255, 111, 129;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #e06272;
+  --ion-color-primary-tint: #ff7e8e;
+
+  /* ---- Ionic color: secondary = plum ---- */
+  --ion-color-secondary: #2E2A4D;
+  --ion-color-secondary-rgb: 46, 42, 77;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #282544;
+  --ion-color-secondary-tint: #423e5f;
+
+  /* ---- Ionic color: tertiary = sage ---- */
+  --ion-color-tertiary: #5FAE87;
+  --ion-color-tertiary-rgb: 95, 174, 135;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #549978;
+  --ion-color-tertiary-tint: #70b694;
+
+  /* ---- Ionic color: warning = butter ---- */
+  --ion-color-warning: #FFD374;
+  --ion-color-warning-rgb: 255, 211, 116;
+  --ion-color-warning-contrast: #2E2A4D;
+  --ion-color-warning-contrast-rgb: 46, 42, 77;
+  --ion-color-warning-shade: #e0ba66;
+  --ion-color-warning-tint: #ffd882;
+
+  /* ---- Ionic color: danger = coral-dark ---- */
+  --ion-color-danger: #E85569;
+  --ion-color-danger-rgb: 232, 85, 105;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #cc4b5c;
+  --ion-color-danger-tint: #ea6678;
+
+  /* ---- Ionic color: success = sage-dark ---- */
+  --ion-color-success: #5FAE87;
+  --ion-color-success-rgb: 95, 174, 135;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #549978;
+  --ion-color-success-tint: #70b694;
+
+  /* ---- Base surfaces / text ---- */
+  --ion-background-color: var(--cc-cream);
+  --ion-text-color: var(--cc-plum);
+  --ion-toolbar-background: var(--cc-cream);
+  --ion-toolbar-color: var(--cc-plum);
+  --ion-item-background: #ffffff;
+  --ion-border-color: var(--cc-line);
+  --ion-font-family: 'Plus Jakarta Sans', sans-serif;
+  --ion-tab-bar-background: #ffffff;
+  --ion-tab-bar-color: var(--cc-plum-soft);
+  --ion-tab-bar-color-selected: var(--cc-coral-dark);
+}
+
+.ion-color-secondary-fill {
+  --background: var(--cc-plum);
+  --color: #ffffff;
+}

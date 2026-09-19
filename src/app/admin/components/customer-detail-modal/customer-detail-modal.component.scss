@@ -1,0 +1,17 @@
+.info-card { background: #fff; border: 1px solid var(--cc-line); border-radius: var(--cc-radius-md); padding: 14px 16px; margin-bottom: 16px; }
+.row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--cc-line); font-size: 0.85rem; color: var(--cc-plum-soft); }
+.row:last-child { border-bottom: 0; }
+.row strong { color: var(--cc-plum); text-transform: capitalize; }
+.row strong.blocked { color: var(--cc-coral-dark); }
+
+.toggle-btn {
+  width: 100%; border: 2px solid var(--cc-coral-dark); background: #fff; color: var(--cc-coral-dark);
+  font-weight: 800; padding: 12px; border-radius: 999px; margin-bottom: 22px;
+}
+.toggle-btn.blocked { border-color: var(--cc-sage-dark); color: var(--cc-sage-dark); }
+
+.section-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 10px; }
+.order-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--cc-line); }
+.order-row div { display: flex; flex-direction: column; }
+.order-row strong { font-size: 0.85rem; color: var(--cc-plum); }
+.order-row span { font-size: 0.7rem; color: var(--cc-plum-soft); }

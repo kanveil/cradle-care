@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="eyebrow">Admin panel</div>
+      Inventory &amp; stock
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/home"><ion-icon name="exit-outline" slot="icon-only"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding admin-content">
+  <div class="alert-strip">
+    <span>{{ productService.outOfStock().length }} out of stock</span>
+    <span>{{ productService.lowStock().length }} low stock (≤ {{ productService.lowStockThreshold }})</span>
+  </div>
+
+  @for (p of sortedProducts(); track p.id) {
+    <div class="inv-row">
+      <div class="inv-art" [style.background]="iconMap[p.icon].bg">
+        <ion-icon [name]="iconMap[p.icon].icon" [style.color]="iconMap[p.icon].tint"></ion-icon>
+      </div>
+      <div class="inv-info">
+        <h4>{{ p.name }}</h4>
+        <span class="stock-tag" [class.zero]="p.stock === 0" [class.low]="p.stock > 0 && p.stock <= 10">
+          {{ p.stock === 0 ? 'Out of stock' : p.stock + ' in stock' }}
+        </span>
+      </div>
+      <div class="inv-controls">
+        <button (click)="adjust(p.id, -1)" [disabled]="p.stock === 0">−</button>
+        <span>{{ p.stock }}</span>
+        <button (click)="adjust(p.id, 1)">+</button>
+      </div>
+      @if (p.stock <= 10) {
+        <button class="restock-btn" (click)="restock(p.id, p.name)">Restock</button>
+      }
+    </div>
+  }
+</ion-content>

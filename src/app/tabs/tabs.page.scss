@@ -1,0 +1,11 @@
+ion-tab-bar {
+  --background: #ffffff;
+  border-top: 1px solid var(--cc-line);
+}
+ion-tab-button {
+  --color: var(--cc-plum-soft);
+  --color-selected: var(--cc-coral-dark);
+}
+ion-badge {
+  background: var(--cc-coral);
+}

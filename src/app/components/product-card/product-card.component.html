@@ -1,0 +1,24 @@
+<div class="pc-card">
+  <div class="pc-art-wrap">
+    <div class="pc-art" [style.background]="art.bg">
+      <ion-icon [name]="art.icon" [style.color]="art.tint"></ion-icon>
+    </div>
+    <button class="pc-wish-btn" [class.active]="isWished()" (click)="onToggleWishlist()" [attr.aria-label]="isWished() ? 'Remove from wishlist' : 'Add to wishlist'">
+      <ion-icon [name]="isWished() ? 'heart' : 'heart-outline'"></ion-icon>
+    </button>
+  </div>
+  <div class="pc-cat">{{ product.cat }}</div>
+  <h3 class="pc-name">{{ product.name }}</h3>
+  <p class="pc-desc">{{ product.desc }}</p>
+  @if (product.stock <= 0) {
+    <div class="pc-oos">Out of stock</div>
+  } @else if (product.stock <= 10) {
+    <div class="pc-low">Only {{ product.stock }} left</div>
+  }
+  <div class="pc-footer">
+    <span class="pc-price">${{ product.price.toFixed(2) }}</span>
+    <button class="pc-add-btn" [class.added]="justAdded" [disabled]="product.stock <= 0" (click)="onAddToCart()">
+      @if (justAdded) { Added ✓ } @else if (product.stock <= 0) { Sold out } @else { Add <ion-icon name="add"></ion-icon> }
+    </button>
+  </div>
+</div>

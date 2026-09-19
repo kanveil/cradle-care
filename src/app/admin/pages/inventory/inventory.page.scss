@@ -1,0 +1,14 @@
+.admin-content { --background: var(--cc-cream-2); }
+.alert-strip { display: flex; justify-content: space-between; gap: 10px; background: var(--cc-plum); color: #fff; padding: 12px 16px; border-radius: var(--cc-radius-md); font-size: 0.76rem; font-weight: 700; margin-bottom: 16px; }
+.inv-row { display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--cc-line); border-radius: var(--cc-radius-md); padding: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+.inv-art { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex: none; ion-icon { font-size: 19px; } }
+.inv-info { flex: 1; min-width: 120px; }
+.inv-info h4 { margin: 0 0 4px; font-size: 0.8rem; color: var(--cc-plum); }
+.stock-tag { font-size: 0.68rem; font-weight: 800; color: var(--cc-sage-dark); }
+.stock-tag.low { color: #C99400; }
+.stock-tag.zero { color: var(--cc-coral-dark); }
+.inv-controls { display: flex; align-items: center; border: 1px solid var(--cc-line); border-radius: 999px; overflow: hidden; flex: none; }
+.inv-controls button { background: #fff; border: none; width: 28px; height: 28px; font-weight: 800; color: var(--cc-plum); }
+.inv-controls button:disabled { color: var(--cc-line); }
+.inv-controls span { width: 34px; text-align: center; font-size: 0.8rem; font-weight: 700; }
+.restock-btn { flex-basis: 100%; margin-top: 4px; background: var(--cc-coral); color: #fff; border: none; border-radius: 999px; padding: 8px; font-weight: 800; font-size: 0.76rem; }

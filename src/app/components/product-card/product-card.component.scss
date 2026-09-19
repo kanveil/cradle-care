@@ -1,0 +1,44 @@
+:host { display: block; height: 100%; }
+.pc-card {
+  background: #fff;
+  border: 1px solid var(--cc-line);
+  border-radius: var(--cc-radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+.pc-art-wrap { position: relative; }
+.pc-art {
+  height: 96px;
+  border-radius: var(--cc-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ion-icon { font-size: 44px; }
+}
+.pc-wish-btn {
+  position: absolute; top: 8px; right: 8px; width: 32px; height: 32px; border-radius: 50%;
+  border: 1px solid var(--cc-line); background: rgba(255,255,255,.92); color: var(--cc-plum);
+  display: flex; align-items: center; justify-content: center;
+  ion-icon { font-size: 16px; }
+}
+.pc-wish-btn.active { color: var(--cc-coral); border-color: #ffc0c8; background: #fff1f3; }
+.pc-cat {
+  font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--cc-sage-dark);
+}
+.pc-name { font-size: 0.96rem; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; color: var(--cc-plum); }
+.pc-desc { font-size: 0.78rem; color: var(--cc-plum-soft); line-height: 1.45; flex: 1; margin: 0; }
+.pc-oos { font-size: 0.7rem; font-weight: 800; color: var(--cc-coral-dark); }
+.pc-low { font-size: 0.7rem; font-weight: 800; color: var(--cc-butter); background: #FFF7E6; display: inline-block; padding: 2px 8px; border-radius: 999px; width: fit-content; }
+.pc-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 2px; }
+.pc-price { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.05rem; color: var(--cc-plum); }
+.pc-add-btn {
+  background: var(--cc-plum); color: #fff; border: none; border-radius: 999px;
+  padding: 7px 14px; font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; gap: 4px;
+  ion-icon { font-size: 13px; }
+}
+.pc-add-btn.added { background: var(--cc-sage-dark); }
+.pc-add-btn:disabled { background: var(--cc-line); color: var(--cc-plum-soft); }

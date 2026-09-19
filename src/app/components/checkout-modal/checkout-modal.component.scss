@@ -1,0 +1,50 @@
+ion-toolbar { --min-height: 64px; }
+.steps {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 12px 16px 16px;
+}
+.step {
+  display: flex; align-items: center; gap: 8px; color: var(--cc-plum-soft); font-size: 0.72rem; font-weight: 700;
+  span { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #fff; border: 2px solid var(--cc-line); flex: none; }
+}
+.step.active, .step.complete { color: var(--cc-plum); }
+.step.active span { background: var(--cc-coral); border-color: var(--cc-coral); color: #fff; }
+.step.complete span { background: var(--cc-sage); border-color: var(--cc-sage); color: #fff; }
+
+h3 { font-size: 1.25rem; margin: 4px 0 0; }
+.help { color: var(--cc-plum-soft); font-size: 0.85rem; margin: 6px 0 18px; }
+
+.compact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+
+.pay-methods { display: flex; gap: 10px; margin-bottom: 16px; }
+.pay-method {
+  border: 2px solid var(--cc-line); background: #fff; color: var(--cc-plum-soft);
+  padding: 9px 18px; border-radius: 999px; font-weight: 700;
+}
+.pay-method.active { background: var(--cc-plum); border-color: var(--cc-plum); color: #fff; }
+
+.paypal-box { background: #fff; border: 1px solid var(--cc-line); border-radius: var(--cc-radius-md); padding: 18px; }
+.paypal-box p { color: var(--cc-plum-soft); font-size: 0.85rem; line-height: 1.5; }
+.paypal-approved { color: var(--cc-sage-dark); font-weight: 800; margin-top: 12px; }
+
+.review-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.review-card {
+  background: #fff; border: 1px solid var(--cc-line); border-radius: var(--cc-radius-md); padding: 14px;
+  h4 { margin: 0 0 8px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  div { font-size: 0.82rem; line-height: 1.5; color: var(--cc-plum-soft); }
+}
+.text-btn { border: none; background: none; color: var(--cc-coral-dark); font-weight: 800; padding: 8px 0 0; font-size: 0.78rem; }
+.review-items { border-top: 1px solid var(--cc-line); }
+.review-items div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--cc-line); font-size: 0.82rem; }
+.review-total { display: flex; justify-content: space-between; font-size: 1.05rem; font-weight: 800; padding: 16px 0; }
+.terms { display: flex; gap: 10px; align-items: flex-start; color: var(--cc-plum-soft); font-size: 0.78rem; line-height: 1.45; }
+
+.success { text-align: center; padding: 40px 10px; }
+.success ion-icon { font-size: 56px; margin-bottom: 12px; }
+.success h2 { font-size: 1.4rem; margin: 0 0 8px; }
+.success p { color: var(--cc-plum-soft); }
+
+ion-footer .actions {
+  display: flex; gap: 10px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  background: var(--cc-cream); border-top: 1px solid var(--cc-line);
+  ion-button { flex: 1; margin: 0; }
+}

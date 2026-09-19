@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="eyebrow">Admin panel</div>
+      Order management
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/home"><ion-icon name="exit-outline" slot="icon-only"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding admin-content">
+  <div class="filters">
+    <button class="filter-btn" [class.active]="activeFilter() === -1" (click)="setFilter(-1)">All</button>
+    @for (label of statusLabels; track label; let i = $index) {
+      <button class="filter-btn" [class.active]="activeFilter() === i" (click)="setFilter(i)">{{ label }}</button>
+    }
+  </div>
+
+  @if (filteredOrders().length === 0) {
+    <div class="cc-empty-state">No orders in this status.</div>
+  } @else {
+    @for (o of filteredOrders(); track o.id) {
+      <div class="order-card" (click)="view(o)">
+        <div class="order-top">
+          <div>
+            <strong>{{ o.id }}</strong>
+            <span>{{ o.shipping.name }} · {{ o.createdAt | date:'mediumDate' }}</span>
+          </div>
+          <strong class="total">${{ o.total.toFixed(2) }}</strong>
+        </div>
+        <div class="order-bottom">
+          <span class="status-badge" [class]="'s' + statusOf(o)">{{ statusLabels[statusOf(o)] }}</span>
+          @if (statusOf(o) < 3) {
+            <button class="advance-btn" (click)="advanceStatus(o, $event)">Mark as {{ statusLabels[statusOf(o) + 1] }} →</button>
+          }
+        </div>
+      </div>
+    }
+  }
+</ion-content>

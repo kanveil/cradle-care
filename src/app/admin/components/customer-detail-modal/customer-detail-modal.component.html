@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="eyebrow">Customer</div>
+      {{ customer.name }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()"><ion-icon name="close" slot="icon-only"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="info-card">
+    <div class="row"><span>Email</span><strong>{{ customer.email }}</strong></div>
+    <div class="row"><span>Phone</span><strong>{{ customer.phone }}</strong></div>
+    <div class="row"><span>Joined</span><strong>{{ customer.joinedAt | date:'mediumDate' }}</strong></div>
+    <div class="row"><span>Lifetime spend</span><strong>${{ customer.totalSpent.toFixed(2) }}</strong></div>
+    <div class="row"><span>Status</span><strong [class.blocked]="customer.status === 'blocked'">{{ customer.status }}</strong></div>
+  </div>
+
+  <button class="toggle-btn" [class.blocked]="customer.status === 'active'" (click)="toggleStatus()">
+    {{ customer.status === 'active' ? 'Block customer' : 'Reactivate customer' }}
+  </button>
+
+  <h4 class="section-title">Order history ({{ orders().length }})</h4>
+  @if (orders().length === 0) {
+    <div class="cc-empty-state">No orders from this customer yet.</div>
+  } @else {
+    @for (o of orders(); track o.id) {
+      <div class="order-row">
+        <div>
+          <strong>{{ o.id }}</strong>
+          <span>{{ o.createdAt | date:'mediumDate' }}</span>
+        </div>
+        <strong>${{ o.total.toFixed(2) }}</strong>
+      </div>
+    }
+  }
+</ion-content>
